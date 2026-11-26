@@ -6,6 +6,7 @@ wiki = wikipediaapi.Wikipedia(
 )
 
 def wiki_article(theme):
+    """function that interfaces with the Wikipedia article on the selected topic and generates tips"""
     themen_quiz = wiki.page(theme)
     clean_sentences = []
 

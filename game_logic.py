@@ -12,12 +12,14 @@ BERLIN_SIGHTS = ["Brandenburger Tor",
 
 
 def player_round_run(note, solution, answers):
+    """function for entering answers, checking them, and calculating scores"""
     answer_count = 0
 
     print(note)
 
     for key, val in answers.items():
         print(f"{key}: {val}")
+    print()
 
     while True:
         try:
@@ -32,16 +34,19 @@ def player_round_run(note, solution, answers):
 
     if result == solution:
         print(f"Rictige Antwort: {solution} ist gesucht!")
+        print("---------------------------")
         print()
         answer_count += 1
     else:
         print("Deine Antwort ist falsch!")
+        print("---------------------------")
         print()
 
     return answer_count
 
 
 def generate_answers(solution):
+    """function for creating answer choices"""
     possible_answers = BERLIN_SIGHTS.copy()
     possible_answers.remove(solution)
     letters = ["A", "B", "C", "D"]
@@ -56,11 +61,13 @@ def generate_answers(solution):
 
 
 def suggest(notes):
+    """function for creating the tip"""
     selected_notes = random.choice(notes)
     return selected_notes
 
 
 def player_round_start(player):
+    """function for generating the solution"""
     print(f"{player} deine runde startet: ")
     print()
     choose_quiz = random.choice(BERLIN_SIGHTS)
@@ -68,6 +75,7 @@ def player_round_start(player):
 
 
 def player_info(number_of_player):
+    """function to collect player names"""
     name_of_players = []
 
     for num in range(number_of_player):
@@ -78,6 +86,7 @@ def player_info(number_of_player):
 
 
 def start_game():
+    """function to control the game"""
     while True:
         try:
             num_player = int(input("Wieviele Spieler gibt es: "))
